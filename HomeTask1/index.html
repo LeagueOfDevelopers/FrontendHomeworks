@@ -1,0 +1,27 @@
+<!--Здесь определяется начало Angular приложения с помощью ng-app-->
+<html lang="ru" ng-app="LodShop">
+<head>
+  <meta charset="UTF-8">
+  <title>League of Devs Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Products</h1>
+  <div class="content">
+    <div class="item">
+      <span class="name"> Default </span>
+      <div class="view"></div>
+      <select class="specifications" name="specifications" title="">
+        <option value=""> Default </option>
+      </select>
+      <p class="price">
+        Price: <span class="price-value"></span> ₽
+      </p>
+      <span class="buy-button">Order</span>
+    </div>
+  </div>
+  <!--подлкючаем Angular и app.js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

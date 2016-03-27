@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #82a7ad;
+  font-size: 1em;
+  font-family: Calibri, sans-serif;
+}
+
+h1 {
+  margin: 30px;
+  font-size: 3em;
+  text-align: center;
+  color: white;
+}
+
+.content {
+  width: 95%;
+  margin: 30px auto;
+  max-width: 1700px;
+  min-height: 600px;
+  border-radius: 5px;
+  text-align: left;
+  font-size: 0;
+}
+
+.item {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 300px;
+  min-height: 350px;
+  margin: 10px;
+  border-radius: 8px;
+  background: #fefeff;
+  -webkit-user-select: none;
+  text-align: center;
+}
+
+.item:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.name {
+  display: inline-block;
+  color: black;
+  font-size: 24px;
+  margin: 20px auto;
+  -webkit-user-select: text;
+}
+
+.view {
+  width: 120px;
+  height: 120px;
+  background: url("product-icon.png") no-repeat center;
+  background-size: contain;
+  margin: 0 auto 20px auto;
+}
+
+.specifications {
+  width: 260px;
+  margin-bottom: 20px;
+}
+
+.price, .not-available-message {
+  display: block;
+  margin: 0 auto;
+  font-size: 24px;
+}
+
+.not-available-message{
+  color: #82a7ad;
+  margin: 0 auto 20px auto;
+}
+
+.buy-button {
+  display: block;
+  box-sizing: border-box;
+  width: 90%;
+  height: 40px;
+  margin: 15px auto;
+  padding-top: 4px;
+  top: 244px;
+  left: 180px;
+  font-size: 24px;
+  background: #8fe500;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: -2px 2px #6cb600;
+  transition: background .5s;
+}
+
+.buy-button:hover {
+  background: greenyellow;
+}
+
+.buy-button:active {
+  transform: translateY(2px);
+}
