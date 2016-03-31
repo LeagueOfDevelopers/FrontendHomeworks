@@ -13,12 +13,19 @@ LodShop.service('JSONService', [function () {
 LodShop.service('ProductsService', ['JSONService', function (JSONService) {
   var productsJSON = JSONService.getProductsJSON();
 
+  this.DesProductsJSON = function() {
+    return JSON.parse(productsJSON);
+  }
+
+
 }]);
 
 
 
 /*Controllers*/
 LodShop.controller('ProductsController', ['$scope', function ($scope) {
+
+  $scope = DesProductsJSON();
 
 }]);
 
