@@ -7,21 +7,21 @@
 </head>
 <body>
   <h1>Products</h1>
-  <div class="content">
-    <div class="item">
-      <span class="name"> Default </span>
+  <div class="content" ng-controller="ProductsController" >
+    <div class="item" ng-repeat="product in products">
+      <span class="name" > {{product.productName}} </span>
       <div class="view"></div>
-      <select class="specifications" name="specifications" title="">
-        <option value=""> Default </option>
+      <select class="specifications" name="specifications" title="" ng-model="selected"
+              ng-options="specification.name for specification in product.productSpecifications | filter:remove ">
       </select>
       <p class="price">
-        Price: <span class="price-value"></span> ₽
+        Price: <span class="price-value">{{selected.price}}</span> ₽
       </p>
-      <span class="buy-button">Order</span>
+      <span class="buy-button" ng-click="order(selected)">Order</span>
     </div>
   </div>
   <!--подлкючаем Angular и app.js -->
-  <script src="bower_components/angular/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
