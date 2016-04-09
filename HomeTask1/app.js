@@ -11,15 +11,19 @@ LodShop.service('JSONService', [function () {
 
 //Редактировать ниже
 LodShop.service('ProductsService', ['JSONService', function (JSONService) {
-  var productsJSON = JSONService.getProductsJSON();
+    var productsJSON = JSONService.getProductsJSON();
+
+    this.SerializeProducts = function () {
+        var serializedproducts ;
+        return serializedproducts = JSON.parse(productsJSON) ;
+    }
 
 }]);
 
 
-
 /*Controllers*/
-LodShop.controller('ProductsController', ['$scope', function ($scope) {
-
+LodShop.controller('ProductsController', ['$scope','ProductsService', function ($scope, ProductsService) {
+     $scope.products = ProductsService.SerializeProducts();
 }]);
 
 
