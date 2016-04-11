@@ -11,15 +11,22 @@ LodShop.service('JSONService', [function () {
 
 //Редактировать ниже
 LodShop.service('ProductsService', ['JSONService', function (JSONService) {
-  var productsJSON = JSONService.getProductsJSON();
 
+    var productsJSON = JSONService.getProductsJSON();
+
+
+    this.ParseJSON = new function(){
+        var productsJSON_list = JSON.parse(productsJSON);
+        return productsJSON_list;
+    };
 }]);
 
 
 
 /*Controllers*/
-LodShop.controller('ProductsController', ['$scope', function ($scope) {
-
+LodShop.controller('ProductsController', ['$scope', 'ProductsService', function ($scope, ProductsService) {
+    $scope.productsList = ProductsService.ParseJSON;
+    console.log($scope.productsList);
 }]);
 
 

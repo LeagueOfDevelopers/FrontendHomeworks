@@ -6,16 +6,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Products</h1>
-  <div class="content">
-    <div class="item">
-      <span class="name"> Default </span>
+<h1>Pro</h1>
+<h1>Products </h1>
+<div class="content" ng-controller="ProductsController">
+    <div class="item" ng-repeat="obj in productsList">
+      <span class="name">{{obj.productName}}</span>
       <div class="view"></div>
       <select class="specifications" name="specifications" title="">
-        <option value=""> Default </option>
+        <option value="{{option.name}}"  ng-repeat="option in obj.productSpecifications"> {{option.name;}} </option>
       </select>
       <p class="price">
-        Price: <span class="price-value"></span> ₽
+        Price: <span class="price-value" ng-bind=""> {{CurrentSelectedOption.price}} P </span>
       </p>
       <span class="buy-button">Order</span>
     </div>
