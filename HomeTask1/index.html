@@ -11,11 +11,12 @@
     <div class="item" ng-repeat="product in products">
       <span class="name"> {{ product.productName }} </span>
       <div class="view"></div>
-      <select class="specifications" name="specifications" title="" ng-model="thisModel" >
-        <option value=""> </option>
+      <select class="specifications" name="specifications" title="" ng-model="specificationPrice"
+      ng-options="specification.price as specification.name for specification in product.productSpecifications ">
+        <div ng-if="isNotSold" > </div>
       </select>
-      <p class="price">
-        Price: <span class="price-value"></span> ₽
+      <p class="price" >
+        Price: <span class="price-value" > {{specificationPrice.price}}</span> ₽
       </p>
       <span class="buy-button">Order</span>
     </div>
