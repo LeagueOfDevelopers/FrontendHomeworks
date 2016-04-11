@@ -13,9 +13,8 @@ LodShop.service('JSONService', [function () {
 LodShop.service('ProductsService', ['JSONService', function (JSONService) {
     var productsJSON = JSONService.getProductsJSON();
 
-    this.SerializeProducts = function () {
-        var serializedproducts ;
-        return serializedproducts = JSON.parse(productsJSON) ;
+    this.deserializeProducts = function () {
+        return JSON.parse(productsJSON) ;
     }
 
 }]);
@@ -23,10 +22,11 @@ LodShop.service('ProductsService', ['JSONService', function (JSONService) {
 
 /*Controllers*/
 LodShop.controller('ProductsController', ['$scope','ProductsService', function ($scope, ProductsService) {
-     $scope.products = ProductsService.SerializeProducts();
+     $scope.products = ProductsService.deserializeProducts();
      $scope.isNotSold = function(specification){
          return (specification.piecesInStock >0)
      };
+
 }]);
 
 
