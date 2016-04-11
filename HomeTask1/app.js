@@ -24,9 +24,8 @@ LodShop.service('ProductsService', ['JSONService', function (JSONService) {
 /*Controllers*/
 LodShop.controller('ProductsController', ['$scope','ProductsService', function ($scope, ProductsService) {
      $scope.products = ProductsService.SerializeProducts();
-     $scope.filter = function(specification){
-         if (specification.piecesInStock >0)
-         {inNotSold=true;}
+     $scope.isNotSold = function(specification){
+         return (specification.piecesInStock >0)
      };
 }]);
 

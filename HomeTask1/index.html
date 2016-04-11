@@ -12,11 +12,10 @@
       <span class="name"> {{ product.productName }} </span>
       <div class="view"></div>
       <select class="specifications" name="specifications" title="" ng-model="specificationPrice"
-      ng-options="specification.price as specification.name for specification in product.productSpecifications ">
-        <div ng-if="isNotSold" > </div>
+      ng-options="specification.price as specification.name for specification in product.productSpecifications  | filter:isNotSold">
       </select>
       <p class="price" >
-        Price: <span class="price-value" > {{specificationPrice.price}}</span> ₽
+        Price: <span class="price-value" > {{specification.price}}</span> ₽
       </p>
       <span class="buy-button">Order</span>
     </div>
