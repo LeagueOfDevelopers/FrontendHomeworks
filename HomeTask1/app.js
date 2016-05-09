@@ -26,6 +26,9 @@ LodShop.service('ProductsService', ['JSONService', function (JSONService) {
 /*Controllers*/
 LodShop.controller('ProductsController', ['$scope', 'ProductsService', function ($scope, ProductsService) {
     $scope.productsList = ProductsService.ParseJSON;
+    $scope.isNotSold = function(specification){
+        return (specification.piecesInStock > 0)
+    };
     console.log($scope.productsList);
 }]);
 

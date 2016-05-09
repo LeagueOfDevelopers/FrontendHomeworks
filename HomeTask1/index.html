@@ -12,11 +12,22 @@
     <div class="item" ng-repeat="obj in productsList">
       <span class="name">{{obj.productName}}</span>
       <div class="view"></div>
-      <select class="specifications" name="specifications" title="">
-        <option value="{{option.name}}"  ng-repeat="option in obj.productSpecifications"> {{option.name;}} </option>
-      </select>
-      <p class="price">
-        Price: <span class="price-value" ng-bind=""> {{CurrentSelectedOption.price}} P </span>
+
+       <!-- Это работает, используется фильтр из контроллера -->
+       <select class="specifications" name="specifications" title="" ng-model="selectedSpecification"
+                ng-options="entry.name for entry in obj.productSpecifications | filter:isNotSold">
+        </select>
+
+        <!-- А это - нет -->
+        <!--<select class="specifications" name="specifications" title="" ng-model="selectedSpecification"
+                ng-options="entry.name for entry in obj.productSpecifications">
+            <option ng-if="selectedSpecification.piecesInStock > 0" value=""></option>
+        </select> -->
+
+        <p class="price">
+            Price: <span class="price-value">{{selectedSpecification.price}}</span> ₽
+        </p>
+
       </p>
       <span class="buy-button">Order</span>
     </div>
